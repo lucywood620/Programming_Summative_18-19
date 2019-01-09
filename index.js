@@ -3,6 +3,7 @@ var col;
 let circle1;
 let circle2;
 let circle3;
+let slider;
 
 class Circle{
   constructor(x,y,i) {
@@ -26,16 +27,23 @@ class Circle{
   }
 
   show() {
-    col = map(this.i,0,360,120,255);
-    fill(col,col,col);
-    noStroke();
-    fill(col,0,88);
+    stroke(slider.value(), 255, 255);
+    fill(slider.value(), 255, 255, 127);
     ellipse(this.x,this.y,this.w,this.w);
   }
+
 }
 
 function setup(){
   createCanvas(windowWidth, windowHeight);
+  // hue, saturation, and brightness
+  colorMode(HSB, 255);
+  // slider has a range between 0 and 255 with a starting value of 0
+  slider = createSlider(0, 255, 0);
+  //positioning the slider in the top left hand corner
+  slider.position(20,20);
+
+  //creating 3 circle objects
   circle1 = new Circle(100,0,0);
   circle2 = new Circle(100,0,100);
   circle3 = new Circle(100,0,200);
@@ -43,6 +51,7 @@ function setup(){
 
 function draw(){
   background(242);
+
   circle1.move();
   circle1.show();
   circle2.move();
@@ -50,4 +59,8 @@ function draw(){
   circle3.move();
   circle3.show();
   time = time + 0.5
+}
+
+function mousePressed() {
+  circle1.clicked(mouseX,mouseY)
 }
