@@ -4,6 +4,7 @@ let circle1;
 let circle2;
 let circle3;
 let colour_slider;
+let size_slider;
 
 class Circle{
   constructor(x,y,i) {
@@ -20,9 +21,9 @@ class Circle{
     else{
       this.i = 0
     }    
-    this.x = cos(radians(this.i)) * 50 + windowWidth / 2;
-    this.y = sin(radians(this.i)) * 100 + windowHeight / 2;
-    this.w = (sin(radians(time + this.i)) * 200);
+    this.x = cos(radians(this.i)) * size_slider.value() + windowWidth / 2;
+    this.y = sin(radians(this.i)) * (size_slider.value()*2) + windowHeight / 2;
+    this.w = (sin(radians(time + this.i)) * (size_slider.value()*4));
     this.w = abs(this.w);
   }
 
@@ -36,12 +37,15 @@ class Circle{
 
 function setup(){
   createCanvas(windowWidth, windowHeight);
-  // hue, saturation, and brightness
   colorMode(HSB, 255);
-  // slider has a range between 0 and 255 with a starting value of 0
+
+  // creating a slider to change the colour of the circles
   colour_slider = createSlider(0, 255, 0);
-  //positioning the slider in the top left hand corner
   colour_slider.position(20,20);
+
+  //creating a slider to change the size of the circles
+  size_slider = createSlider(0,100,50);
+  size_slider.position(180,20);
 
   //creating 3 circle objects
   circle1 = new Circle(100,0,0);
@@ -54,7 +58,8 @@ function draw(){
   //adding text labels to the sliders
   fill(0);
   stroke(0)
-  text("Circle colour",35,45);
+  text("circle colour",35,45);
+  text("circle size",203,45)
   textSize(15);
 
   circle1.move();
