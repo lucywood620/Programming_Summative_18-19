@@ -1,6 +1,8 @@
 var time = 0;
 var col;
 let circle1;
+let circle2;
+let circle3;
 
 class Circle{
   constructor(x,y,i) {
@@ -35,11 +37,17 @@ class Circle{
 function setup(){
   createCanvas(windowWidth, windowHeight);
   circle1 = new Circle(100,0,0);
+  circle2 = new Circle(100,0,100);
+  circle3 = new Circle(100,0,200);
 }
 
 function draw(){
   background(242);
   circle1.move();
   circle1.show();
+  circle2.move();
+  circle2.show();
+  circle3.move();
+  circle3.show();
   time = time + 0.5
 }
