@@ -1,17 +1,19 @@
 var time = 0;
-var col;
 let circle1;
 let circle2;
 let circle3;
 let colour_slider;
 let size_slider;
+let speed_slider;
+let circles = []
 
 class Circle{
   constructor(x,y,i) {
-    this.x = x
-    this.y = y
-    this.w = 100
-    this.i = i
+    this.x = x;
+    this.y = y;
+    this.w = 100;
+    this.i = i;
+    this.brightness = 255;
   }
   
   move(){
@@ -28,11 +30,19 @@ class Circle{
   }
 
   show() {
-    stroke(colour_slider.value(), 255, 255);
-    fill(colour_slider.value(), 255, 255, 127);
+    stroke(colour_slider.value(), 255, this.brightness);
+    fill(colour_slider.value(), 255, this.brightness, 127);
     ellipse(this.x,this.y,this.w,this.w);
   }
 
+  hover(x,y){
+    let d = dist(x,y,this.x,this.y)
+    if (d < this.w/2) {
+      this.brightness = 180
+      this.show()
+      console.log("hover");
+    }
+  }
 }
 
 function setup(){
@@ -47,10 +57,13 @@ function setup(){
   size_slider = createSlider(0,100,50);
   size_slider.position(180,20);
 
-  //creating 3 circle objects
+  //creating 3 circle objects and adding them to an array
   circle1 = new Circle(100,0,0);
+  circles.push(circle1);
   circle2 = new Circle(100,0,100);
+  circles.push(circle2);
   circle3 = new Circle(100,0,200);
+  circles.push(circle3);
 }
 
 function draw(){
@@ -62,15 +75,10 @@ function draw(){
   text("circle size",203,45)
   textSize(15);
 
-  circle1.move();
-  circle1.show();
-  circle2.move();
-  circle2.show();
-  circle3.move();
-  circle3.show();
+  for (let i = 0; i < circles.length; i++) {
+    circles[i].hover(mouseX,mouseY);
+    circles[i].move();
+    circles[i].show();
+  }
   time = time + 0.5
-}
-
-function mousePressed() {
-  circle1.clicked(mouseX,mouseY)
 }
