@@ -1,25 +1,45 @@
 var time = 0;
+var col;
+let circle1;
+
+class Circle{
+  constructor(x,y,i) {
+    this.x = x
+    this.y = y
+    this.w = 100
+    this.i = i
+  }
+  
+  move(){
+    if (this.i < 360){
+      this.i = this.i + 0.5
+    }
+    else{
+      this.i = 0
+    }    
+    this.x = cos(radians(this.i)) * 50 + windowWidth / 2;
+    this.y = sin(radians(this.i)) * 100 + windowHeight / 2;
+    this.w = (sin(radians(time + this.i)) * 200);
+    this.w = abs(this.w);
+  }
+
+  show() {
+    col = map(this.i,0,360,120,255);
+    fill(col,col,col);
+    noStroke();
+    fill(col,0,88);
+    ellipse(this.x,this.y,this.w,this.w);
+  }
+}
 
 function setup(){
-  createCanvas(600, 600);
-  noFill();
-  stroke(255);
+  createCanvas(windowWidth, windowHeight);
+  circle1 = new Circle(100,0,0);
 }
 
 function draw(){
   background(242);
-  for(var i = 0; i < 360; i+=3){
-    var x = cos(radians(i)) * 50 + width / 2;
-    var y = sin(radians(i)) *100 + height / 2;
-    var w = sin(radians(time+i )) * 200;
-    w = abs(w);
-
-    var col=map(i,0,360,120,255);
-    fill(col,col,col);
-
-    noStroke();
-    fill(col,0,88);
-    ellipse(x, y, w, w);
-  }
-  time++;
+  circle1.move();
+  circle1.show();
+  time = time + 0.5
 }
