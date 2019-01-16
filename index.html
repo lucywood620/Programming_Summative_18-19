@@ -1,9 +1,80 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
-    <script defer src=http://CDN.JSDelivr.net/npm/p5/lib/addons/p5.dom.min.js></script>
-    <script  type="text/javascript" src="index.js"></script>
-  </head>
+<head>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+<script defer src=http://CDN.JSDelivr.net/npm/p5/lib/addons/p5.dom.min.js></script>
+<script  type="text/javascript" src="index.js"></script>
 
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Create two columns/boxes that floats next to each other */
+box1 {
+  float: left;
+  width: 30%;
+  height: 750px; /* only for demonstration, should be removed */
+  background: #ccc;
+  padding: 10px;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: white;
+    outline: none;
+    opacity: 0.7;
+}
+      
+.slider:hover {
+    opacity: 1;
+}
+      
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+}
+</style>
+</head>
+
+<body>
+
+<box1>
+    <p>Slide to change the circle colour:</p>
+    <form method = "post" class = "slider">
+      <input type = "range" id = "colour" min = "0" max = "255" value = "127" class = "slider"/>
+      <output id = "colourSlider"></output>
+    </form>
+
+  <p>Slide to change the circle size:</p>
+    <form method = "post" class = "slider">
+      <input type = "range" id = "size" min = "0" max = "100" value = "50" class = "slider"/>
+      <output id = "sizeSlider"></output>
+    </form>
+
+  <p>Slide to change the circle speed:</p>
+    <form method = "post" class = "slider">
+      <input type = "range" id = "speed" min = "0" max = "2" value = "1" class = "slider"/>
+      <output id = "speedSlider"></output>
+    </form>
+  
+  <p>Click the button to reset the movement of the circles:</p>
+  <!--slider html credit: https://www.w3schools.com/howto/howto_js_rangeslider.asp-->
+  <!--slider css credit: https://www.youtube.com/watch?v=DQAAJJxza2A-->
+</box1>
+
+<div id="sketch-holder">
+  <!-- Our sketch will go here! -->
+</div>
+
+</body>
 </html>
+
