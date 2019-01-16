@@ -10,9 +10,13 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
+p { 
+  font-family: 'Cabin Condensed'; 
+  font-size: 18px; 
+  font-style: normal; 
+  font-variant: normal; 
+  font-weight: 400; 
+  line-height: 20px; }
 
 /* Create two columns/boxes that floats next to each other */
 box1 {
@@ -64,8 +68,13 @@ box1 {
     <input type="number" id="speed" value="1" min="0" max="6">  
     <output id = "speedNumber"></output>
   </p>
+
+  <p>Click a circle and it will start to bounce around the screen, instead of moving in a circular motion.</p>
   
-  <!--<p>Click the button to reset the movement of the circles:</p>-->
+  <p>Click the button to reset the movement of the circles:</p>
+  <input type="button" id="reset" onclick = reset() value="Reset">
+
+
   <!--slider html credit: https://www.w3schools.com/howto/howto_js_rangeslider.asp-->
   <!--slider css credit: https://www.youtube.com/watch?v=DQAAJJxza2A-->
 </box1>

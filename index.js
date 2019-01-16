@@ -83,6 +83,18 @@ class Circle{
   }
 }
 
+function reset() {
+  var x = 100;
+  var y = 100;
+  for (let i = 0; i < circles.length; i++) {
+    circles[i].x = x
+    circles[i].y = y
+     x = x + 100
+     y = y + 100
+     circles[i].bouncing = false;
+  }
+}  
+
 function speedFunction() {
   speed = document.getElementById("myNumber").value;
   document.getElementById("demo").innerHTML = x;
@@ -104,16 +116,12 @@ function setup(){
   circles.push(circle3);
 }
 
-//reset button
-//move starting position of sliders and balls
-
 function draw(){
   background(242);
   colourSlider = document.getElementById('colour').value;
   sizeSlider = document.getElementById("size").value;
   speedNumber = (document.getElementById("speed").value)/2;
 
-  console.log(speed);
   for (let i = 0; i < circles.length; i++) {
     circles[i].hover(mouseX,mouseY);
     circles[i].show(colourSlider);
