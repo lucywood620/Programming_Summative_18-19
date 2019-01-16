@@ -2,11 +2,10 @@ var time = 0;
 let circle1;
 let circle2;
 let circle3;
-let speed_slider;
 let circles = []
 var colourSlider;
 var sizeSlider;
-var speedSlider;
+var speedNumber;
 var canvas;
 
 
@@ -19,13 +18,12 @@ class Circle{
     this.brightness = 255;
     this.circledirectionx = 2;
     this.circledirectiony = -2;
-    this.circlespeed = 4;
     this.bouncing = false;
   }
   
   move(){
     if (this.i < 360){
-      this.i = this.i + 1;
+      this.i = this.i + speedNumber;
     }
     else{
       this.i = 0
@@ -65,8 +63,8 @@ class Circle{
 
   bounce(){
     //credit: https://www.youtube.com/watch?v=Kp070rI_G48
-    this.x = this.x + (this.circledirectionx * this.circlespeed);
-    this.y = this.y + (this.circledirectiony * this.circlespeed);
+    this.x = this.x + (this.circledirectionx * speedNumber);
+    this.y = this.y + (this.circledirectiony * speedNumber);
     this.w = sizeSlider*4;
     this.w = abs(this.w);
 
@@ -83,6 +81,11 @@ class Circle{
       this.circledirectiony = this.circledirectiony * -1;
     }
   }
+}
+
+function speedFunction() {
+  speed = document.getElementById("myNumber").value;
+  document.getElementById("demo").innerHTML = x;
 }
 
 function setup(){
@@ -108,8 +111,9 @@ function draw(){
   background(242);
   colourSlider = document.getElementById('colour').value;
   sizeSlider = document.getElementById("size").value;
-  speedSlider = document.getElementById("speed").value;
+  speedNumber = (document.getElementById("speed").value)/2;
 
+  console.log(speed);
   for (let i = 0; i < circles.length; i++) {
     circles[i].hover(mouseX,mouseY);
     circles[i].show(colourSlider);
@@ -122,7 +126,6 @@ function draw(){
     //function, otherwise the circle will continue to move in a circle as normal
     }
   }  
-  time = time + 0.5
 }
 
 function mousePressed() {

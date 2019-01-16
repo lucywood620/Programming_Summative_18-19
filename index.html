@@ -60,13 +60,12 @@ box1 {
       <output id = "sizeSlider"></output>
     </form>
 
-  <p>Slide to change the circle speed:</p>
-    <form method = "post" class = "slider">
-      <input type = "range" id = "speed" min = "0" max = "2" value = "1" class = "slider"/>
-      <output id = "speedSlider"></output>
-    </form>
+  <p>Change speed of circles: (1 - 6):
+    <input type="number" id="speed" value="1" min="0" max="6">  
+    <output id = "speedNumber"></output>
+  </p>
   
-  <p>Click the button to reset the movement of the circles:</p>
+  <!--<p>Click the button to reset the movement of the circles:</p>-->
   <!--slider html credit: https://www.w3schools.com/howto/howto_js_rangeslider.asp-->
   <!--slider css credit: https://www.youtube.com/watch?v=DQAAJJxza2A-->
 </box1>
