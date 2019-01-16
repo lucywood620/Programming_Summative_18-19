@@ -19,6 +19,7 @@ class Circle{
     this.circledirectionx = 2;
     this.circledirectiony = -2;
     this.circlespeed = 4;
+    this.bouncing = false;
   }
   
   move(){
@@ -45,7 +46,19 @@ class Circle{
     if (d < this.w/2) {
       this.brightness = 180
       this.show()
-      console.log("hover");
+    }
+  }
+
+  clicked(x,y){
+    let d = dist(x,y,this.x,this.y)
+    if (d < this.w/2) {
+      if (this.bouncing == false) {
+        this.bouncing = true; 
+      }
+      else {
+        this.bouncing = false;
+      }
+      //credit: https://www.youtube.com/watch?v=TaN5At5RWH8&list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA&index=29
     }
   }
 
@@ -95,6 +108,10 @@ function setup(){
 //slider for speed
 //reset button
 //move starting position of sliders and balls
+//make an instruction side page about how to use elements
+//make sliders html elements
+
+//credit for sliders: https://www.w3schools.com/howto/howto_js_rangeslider.asp
 
 function draw(){
   background(242);
@@ -107,11 +124,21 @@ function draw(){
 
   for (let i = 0; i < circles.length; i++) {
     circles[i].hover(mouseX,mouseY);
-    circles[i].move();
     circles[i].show();
-  }
-  circle4.show();
-  circle4.bounce();
-  
+    //if the circle has been clicked and is meant to be bouncing then run the bounce function
+    if (circles[i].bouncing == true) {
+      circles[i].bounce()
+    }
+    //otherwise the circle will continue to move in a circle as normal
+    else {
+      circles[i].move();
+    }
+  }  
   time = time + 0.5
+}
+
+function mousePressed() {
+  for (let i = 0; i < circles.length; i++) {
+    circles[i].clicked(mouseX,mouseY);
+  }
 }
