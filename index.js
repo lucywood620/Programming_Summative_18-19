@@ -7,6 +7,7 @@ let circles = []
 var colourSlider;
 var sizeSlider;
 var speedSlider;
+var canvas;
 
 
 class Circle{
@@ -72,23 +73,27 @@ class Circle{
     if (this.x < 0) { //off the left of the screen
       this.circledirectionx = this.circledirectionx * -1;
     }
-    if (this.x > windowWidth) { //off the right of the screen
+    if (this.x > 900) { //off the right of the screen
       this.circledirectionx = this.circledirectionx * -1;
     }
     if (this.y < 0) { //off the top  of the screen
       this.circledirectiony = this.circledirectiony * -1;
     }
-    if (this.y > windowHeight) { //off the bottom of the screen
+    if (this.y > 750) { //off the bottom of the screen
       this.circledirectiony = this.circledirectiony * -1;
     }
   }
 }
 
 function setup(){
-  createCanvas(windowWidth, windowHeight);
+  canvas = createCanvas(900, 750);
+  // Move the canvas so it’s inside our <div id="sketch-holder">.
+  canvas.parent('sketch-holder');
+  background(255, 0, 200);
+
   colorMode(HSB, 255);
   //creating 3 circle objects and adding them to an array
-  circle1 = new Circle(100,0,0);
+  circle1 = new Circle(0,0,0);
   circles.push(circle1);
   circle2 = new Circle(100,0,100);
   circles.push(circle2);
