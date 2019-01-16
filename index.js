@@ -66,7 +66,9 @@ class Circle{
     //credit: https://www.youtube.com/watch?v=Kp070rI_G48
     this.x = this.x + (this.circledirectionx * this.circlespeed);
     this.y = this.y + (this.circledirectiony * this.circlespeed);
-  
+    this.w = size_slider.value()*4;
+    this.w = abs(this.w);
+
     if (this.x < 0) { //off the left of the screen
       this.circledirectionx = this.circledirectionx * -1;
     }
