@@ -28,8 +28,8 @@ class Circle{
     else{
       this.i = 0
     }    
-    this.x = cos(radians(this.i)) * sizeSlider + windowWidth / 2;
-    this.y = sin(radians(this.i)) * (sizeSlider*2) + windowHeight / 2;
+    this.x = cos(radians(this.i)) * sizeSlider + 900 / 2;
+    this.y = sin(radians(this.i)) * (sizeSlider*2) + 750 / 2;
     this.w = (sin(radians(time + this.i)) * (sizeSlider*4));
     this.w = abs(this.w);
   }
