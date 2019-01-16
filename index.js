@@ -2,10 +2,12 @@ var time = 0;
 let circle1;
 let circle2;
 let circle3;
+let circle4;
 let colour_slider;
 let size_slider;
 let speed_slider;
 let circles = []
+
 
 class Circle{
   constructor(x,y,i) {
@@ -14,6 +16,9 @@ class Circle{
     this.w = 100;
     this.i = i;
     this.brightness = 255;
+    this.circledirectionx = 2;
+    this.circledirectiony = -2;
+    this.circlespeed = 4;
   }
   
   move(){
@@ -43,6 +48,25 @@ class Circle{
       console.log("hover");
     }
   }
+
+  bounce(){
+    //credit: https://www.youtube.com/watch?v=Kp070rI_G48
+    this.x = this.x + (this.circledirectionx * this.circlespeed);
+    this.y = this.y + (this.circledirectiony * this.circlespeed);
+  
+    if (this.x < 0) { //off the left of the screen
+      this.circledirectionx = this.circledirectionx * -1;
+    }
+    if (this.x > windowWidth) { //off the right of the screen
+      this.circledirectionx = this.circledirectionx * -1;
+    }
+    if (this.y < 0) { //off the top  of the screen
+      this.circledirectiony = this.circledirectiony * -1;
+    }
+    if (this.y > windowHeight) { //off the bottom of the screen
+      this.circledirectiony = this.circledirectiony * -1;
+    }
+  }
 }
 
 function setup(){
@@ -64,7 +88,13 @@ function setup(){
   circles.push(circle2);
   circle3 = new Circle(100,0,200);
   circles.push(circle3);
+  circle4 = new Circle(10,0,10);
+
 }
+
+//slider for speed
+//reset button
+//move starting position of sliders and balls
 
 function draw(){
   background(242);
@@ -80,5 +110,8 @@ function draw(){
     circles[i].move();
     circles[i].show();
   }
+  circle4.show();
+  circle4.bounce();
+  
   time = time + 0.5
 }
