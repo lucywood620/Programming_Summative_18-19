@@ -1,7 +1,7 @@
 <h1>Circle Shifts</h1>
 I have adapted a sketch called CircleShifts which uses the Creative Commons Attribution ShareAlike license.
 
-[openprocessing.org sketch](https://www.openprocessing.org/sketch/425051)
+[openprocessing.org sketch](https://www.openprocessing.org/sketch/425051)<br/>
 [Creative Commons Attribution ShareAlike license](https://pages.github.com/)
 
 <h2>Explanation of example</h2>
