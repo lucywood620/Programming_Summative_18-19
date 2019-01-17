@@ -1,7 +1,6 @@
 //need to do liscencing
 <h1>Circle Shifts</h1>
-I have adapted a sketch from openprocessing.org called [GitHub Pages](https://pages.github.com/)
-[CircleShifts](https://www.openprocessing.org/sketch/425051).
+I have adapted a sketch from openprocessing.org called CircleShifts: https://www.openprocessing.org/sketch/425051
 
 <h2>Javascript Circle class</h2>
 <p>I have one class in my Javascript code, called the `Circle` class. The constructor method is called when initialising a new class object, the parameters (x,y,i) are passed into the constructor which  are the (x,y) co-ordinates of the circle's starting point and i is the stage 
@@ -9,8 +8,7 @@ that the circle is at in oscillation.</p>
 
 ``` javascript
 class Circle {
-  constructor(x,y,i) {
-}
+  constructor(x,y,i)
 ```
 
 <h5>move()</h5>
@@ -20,7 +18,6 @@ class Circle {
 this.x = cos(radians(this.i)) * sizeSlider + 900 / 2;
 this.y = sin(radians(this.i)) * (sizeSlider*2) + 750 / 2;
 this.w = (sin(radians(time + this.i)) * (sizeSlider*4));
-this.w = abs(this.w);
 ```
 
 <h5>show()</h5>
@@ -54,7 +51,6 @@ This method is called when the attribute 'bouncing' is set to 'true', i.e. the u
 this.x = this.x + (this.circledirectionx * speedNumber);
 this.y = this.y + (this.circledirectiony * speedNumber);
 this.w = sizeSlider*4;
-this.w = abs(this.w);
 ```
 There are a series of 'if statements' included in this method to check whether a circle has reached the window boundaries, if so then the direction of the object is changed accordingly. An example of one of the if statements can be seen here:
 
@@ -75,7 +71,7 @@ var randomItem = random[Math.floor(Math.random()*random.length)]
 
 <h2> Javascript Functions</h2>
 
-<h5> function addcircles()</h5>
+<h5> addcircles()</h5>
 This function initialises a certain number of circle objects depending on the number inputted by the user in the HTML text box. I needed to generate object names dynamically as I didn't know how many circles the user would want to create in advance. To do this I used a for loop that I found on a [Codecademy:](https://www.codecademy.com/en/forum_questions/51068e93f73ad4947a005629) forum. The function runs the loop n number of times and generates random (x,y) co-rdinate values for each new circle object, each circle is also added to the `Circle` array so that it can be drawn to the screen.
 
 ``` javascript
@@ -88,17 +84,17 @@ for (var i = 0; i < number; i++) {
 }
 ```
 
-<h5>function reset()</h5>
+<h5>reset()</h5>
 Resets the sketch by removing all the circles the user may have added and returning the original 3 circles to their starting positions.  
 
-<h5>function speedFunction()</h5>
+<h5>speedFunction()</h5>
 Changes the variable `speed` of all the objects in the circle class when the HTML range input is used.
 
-<h5>function setup()</h5>
+<h5>setup()</h5>
 A canvas is created and 3 instances of the circle class are initialised and added the the `Circles` array.
 function setup(){
 
-<h5>function draw()</h5>
+<h5>draw()</h5>
 The HTML input elements that allow the user to alter the colour, size and speed of the circles are drawn to the screen.
 
 ``` javascript
@@ -107,43 +103,18 @@ The HTML input elements that allow the user to alter the colour, size and speed 
   speedNumber = (document.getElementById("speed").value)/2;
 ``` 
 
-<h5>function mousePressed()</h5>
-The mousePressed() function is called once after every time a mouse button is pressed. When runnign this function the `clicked` method is run to see if the mouse pressed occured within the boundary of any circle object.
+<h5>mousePressed()</h5>
+The mousePressed() function is called every time a mouse button is pressed. When running this function the clicked() method is run to see if the mouse pressed occured within the boundary of any circle object.
 
 <h2> HTML elements</h2>
 
-<!--slider html credit: https://www.w3schools.com/howto/howto_js_rangeslider.asp-->
-<!--slider css credit: https://www.youtube.com/watch?v=DQAAJJxza2A-->
+<h5>Layout</h5>
+Using CSS, I created the box1 id, this box sits on the left of the webpage and contains the sliders, text inputs and button allowing the users to alter the circle attributes.
 
-<!DOCTYPE html>
-<html>
-<head>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
-<script defer src=http://CDN.JSDelivr.net/npm/p5/lib/addons/p5.dom.min.js></script>
-<script  type="text/javascript" src="index.js"></script>
+<h5>Sliders</h5>
+The CSS class 'slider' establishes the formatting of the HTML sliders. Code reference: https://www.w3schools.com/howto/howto_js_rangeslider.asp
 
-<style>
-* {
-  box-sizing: border-box;
-}
-
-p { 
-  font-family: 'Cabin Condensed'; 
-  font-size: 18px; 
-  font-style: normal; 
-  font-variant: normal; 
-  font-weight: 400; 
-  line-height: 20px; }
-
-/* Create two columns/boxes that floats next to each other */
-box1 {
-  float: left;
-  width: 30%;
-  height: 750px; /* only for demonstration, should be removed */
-  background: #ccc;
-  padding: 10px;
-}
-
+``` css
 .slider {
     -webkit-appearance: none;
     width: 100%;
@@ -152,55 +123,14 @@ box1 {
     outline: none;
     opacity: 0.7;
 }
-      
-.slider:hover {
-    opacity: 1;
-}
-      
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 25px;
-    height: 25px;
-    background: #4CAF50;
-}
-</style>
-</head>
+``` 
+I have used two sliders to alter the colour and the size of the circle objects. I created these sliders by using a form and referencing the 'slider' class from the style sheet. 
 
-<body>
+<h5>Input Range Object</h5>
+For the speed of the circles, I created a HTML DOM Input Range Object that allows the user to select any speed from 1 to 10 using the arrows on the size of the range object. I decided that this was a better solution than a text box as I can easily bound the speed by minimum and maximum values.
 
-<box1>
-    <p>Slide to change the circle colour:</p>
-    <form method = "post" class = "slider">
-      <input type = "range" id = "colour" min = "0" max = "255" value = "127" class = "slider"/>
-      <output id = "colourSlider"></output>
-    </form>
+<h5>Input Button Object</h5>
+The user can return the sketch to it's stating state by pressing the 'reset' button. When this button is pressed, the reset() function in the index.js file is run.
 
-  <p>Slide to change the circle size:</p>
-    <form method = "post" class = "slider">
-      <input type = "range" id = "size" min = "0" max = "100" value = "50" class = "slider"/>
-      <output id = "sizeSlider"></output>
-    </form>
-
-  <p>Change speed of circles: (1 - 10):
-    <input type="number" id="speed" value="3" min="0" max="10">  
-    <output id = "speedNumber"></output>
-  </p>
-
-  <p>Reset the movement of the circles:
-  <input type="button" id="reset" onclick = reset() value="Reset">
-  </p>
-
-  <p>Add more circles to the screen by inputting the number of circles you would like to create:</p>
-  <input type="text" id="addnew">
-  <button onclick="addcircles()">Add circles</button>
-
-  <p>Click the circles to make them change direction and bounce around the screen!</p>
-
-</box1>
-
-<div id="sketch-holder">
-  <!-- Our sketch will go here! -->
-</div>
-
-</body>
-</html>
+<h5>Input Text Object</h5>
+The user is able to input any number of circles that will be drawn to the screen by runnign the 'addcircles()' function in index.js.
