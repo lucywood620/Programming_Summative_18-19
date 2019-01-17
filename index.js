@@ -51,18 +51,13 @@ class Circle{
   clicked(x,y){
     let d = dist(x,y,this.x,this.y)
     if (d < this.w/2) {
-      if (this.bouncing == false) {
-        this.bouncing = true; 
-      }
-      else {
-        this.bouncing = false;
-      }
-      //credit: https://www.youtube.com/watch?v=TaN5At5RWH8&list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA&index=29
+      this.bouncing = true;
+      this.bounceagain()
     }
   }
+  
 
   bounce(){
-    //credit: https://www.youtube.com/watch?v=Kp070rI_G48
     this.x = this.x + (this.circledirectionx * speedNumber);
     this.y = this.y + (this.circledirectiony * speedNumber);
     this.w = sizeSlider*4;
@@ -78,6 +73,18 @@ class Circle{
       this.circledirectiony = this.circledirectiony * -1;
     }
     if (this.y > 750) { //off the bottom of the screen
+      this.circledirectiony = this.circledirectiony * -1;
+    }
+  }
+
+  bounceagain(){
+    var random = [1, -1]
+    var randomItem = random[Math.floor(Math.random()*random.length)]
+
+    if (randomItem == 1){
+      this.circledirectionx = this.circledirectionx * -1;
+    }
+    else {
       this.circledirectiony = this.circledirectiony * -1;
     }
   }
