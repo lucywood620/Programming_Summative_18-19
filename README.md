@@ -1,6 +1,13 @@
 <h2>Circle class</h2>
 <p>I have one class in my Javascript code, called the `Circle` class. The constructor method is called when initialising a new class object, the parameters (x,y,i) are passed into the constructor which  are the (x,y) co-ordinates of the circle's starting point and i is the stage 
 that the circle is at in oscillation.</p>
+
+```   
+class Circle {
+  constructor(x,y,i) {
+}
+```
+
 ``` javascript
 class Circle {
   constructor(x,y,i) {
