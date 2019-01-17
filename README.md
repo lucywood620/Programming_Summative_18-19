@@ -1,6 +1,7 @@
 //need to do liscencing
 <h1>Circle Shifts</h1>
-I have adapted a sketch from openprocessing.org called [CircleShifts](https://www.openprocessing.org/sketch/425051)
+I have adapted a sketch from openprocessing.org called [GitHub Pages](https://pages.github.com/)
+[CircleShifts](https://www.openprocessing.org/sketch/425051).
 
 <h2>Javascript Circle class</h2>
 <p>I have one class in my Javascript code, called the `Circle` class. The constructor method is called when initialising a new class object, the parameters (x,y,i) are passed into the constructor which  are the (x,y) co-ordinates of the circle's starting point and i is the stage 
