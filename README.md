@@ -1,9 +1,8 @@
 <h1>Circle Shifts</h1>
-I have adapted a sketch from openprocessing.org called CircleShifts which uses the Creative Commons Attribution ShareAlike license.
+I have adapted a sketch called CircleShifts which uses the Creative Commons Attribution ShareAlike license.
 
-[Sketch](https://www.openprocessing.org/sketch/425051)
-
-[License](https://pages.github.com/)
+[openprocessing.org sketch](https://www.openprocessing.org/sketch/425051)
+[Creative Commons Attribution ShareAlike license](https://pages.github.com/)
 
 <h2>Explanation of example</h2>
 The sketch starts with 3 circles moving in a cyclical pattern at different stages in the oscillation. The user is able to change the colour and size of these circles using the sliders to the left of the page. They are also able to change the speed of the circles via the arrows on the input box. Hovering over a circle with the cursor will change the colour of that circle to a darker shade. Clicking on a circle will make the circle bounce around the screen and clicking on the same circle again will change it's direction. Other features include a text box input that allows the user to add multiple circles and a reset button that returns the sketch to it's original state. 
@@ -74,6 +73,7 @@ var randomItem = random[Math.floor(Math.random()*random.length)]
 
 <h5>addcircles()</h5>
 This function creates a number of circle objects according to the number the user inputs in the text box. The number of circles the user would want to create is not known in advance, therefore the objects need to be generated dynamically using a for loop that I found on a Codecademy forum. The function runs the loop n number of times and generates random (x,y) co-rdinate values for each new circle object, each circle is also added to the `Circle` array so that it can be drawn to the screen.
+
 [Codecademy forum](https://www.codecademy.com/en/forum_questions/51068e93f73ad4947a005629)
 
 ``` javascript
