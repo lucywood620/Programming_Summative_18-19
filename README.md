@@ -44,7 +44,9 @@ This method is called whenever the user presses their mouse. Again, variable 'd'
 [Code reference](https://www.youtube.com/watch?v=TaN5At5RWH8&list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA&index=29)
 
 <h5>bounce()</h5>
-The method adds a value onto the (x,y) co-ordinates of a circle object (this value is determined by the speed) which then makes the circle move continually in one direction.  until it reaches a screen boundary, at whihc point a number. I have included a series of 'if statements' that check whether a circle has reached any screen boundary, if so then the direction of the object is changed accordingly. [Code reference](https://www.youtube.com/watch?v=Kp070rI_G48)
+The method adds a value onto the (x,y) co-ordinates of a circle object (this value is determined by the speed) which then makes the circle move continually in one direction.  until it reaches a screen boundary, at whihc point a number. I have included a series of 'if statements' that check whether a circle has reached any screen boundary, if so then the direction of the object is changed accordingly. 
+
+[Code reference](https://www.youtube.com/watch?v=Kp070rI_G48)
  
 ``` javascript
 this.x = this.x + (this.circledirectionx * speedNumber);
