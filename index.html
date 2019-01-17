@@ -64,19 +64,21 @@ box1 {
       <output id = "sizeSlider"></output>
     </form>
 
-  <p>Change speed of circles: (1 - 6):
-    <input type="number" id="speed" value="3" min="0" max="6">  
+  <p>Change speed of circles: (1 - 10):
+    <input type="number" id="speed" value="3" min="0" max="10">  
     <output id = "speedNumber"></output>
   </p>
 
-  <p>Click the circles to make them bounce around the screen!</p>
-  
-  <p>Resset the movement of the circles:</p>
+  <p>Reset the movement of the circles:
   <input type="button" id="reset" onclick = reset() value="Reset">
+  </p>
 
+  <p>Add more circles to the screen by inputting the number of circles you would like to create:</p>
+  <input type="text" id="addnew">
+  <button onclick="addcircles()">Add circles</button>
 
-  <!--slider html credit: https://www.w3schools.com/howto/howto_js_rangeslider.asp-->
-  <!--slider css credit: https://www.youtube.com/watch?v=DQAAJJxza2A-->
+  <p>Click the circles to make them change direction and bounce around the screen!</p>
+
 </box1>
 
 <div id="sketch-holder">
