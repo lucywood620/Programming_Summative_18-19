@@ -1,4 +1,3 @@
-<h1>Classes</h1>
 <h2>Circle class</h2>
 I have one class in my Javascript code, called the 'Circle' class. The constructor method is called when initialising a new class object, the parameters (x,y,i) are passed into the constructor which  are the (x,y) co-ordinates of the circle's starting point and i is the stage 
 that the circle is at in oscillation.
@@ -8,7 +7,7 @@ class Circle{
   }
 ```
 
-<h3>move method</h3>
+<h5>Move()</h5>
 The move method is called every time the 'draw()' function is ran so that it looks as if all the objects that belong to the circle class are constantly moving in a circle. The x and y positions are continually changed until the circle reaches the end of the oscillation, if so then the movement starts again. The code used in this code utilises the code from the original sketch that I am adapting:
 
 ```javascript  
