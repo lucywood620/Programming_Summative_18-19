@@ -10,7 +10,7 @@ The sketch starts with 3 circles oscillating at different stages. The user is ab
 <h2>Javascript circle class</h2>
 
 <h5>constructor(x,y,i)</h5>
-<p>The parameters (x,y,i) are passed into the constructor method when a new circle object is initialised. <mark>x</mark> and y are the (x,y) co-ordinates of the object and i is the stage that the circle is in oscillation.</p>
+<p>The parameters (x,y,i) are passed into the constructor method when a new circle object is initialised. <span style="background-color: #FFFF00">x</span><mark>x</mark> and y are the (x,y) co-ordinates of the object and i is the stage that the circle is in oscillation.</p>
 
 <h5>move()</h5>
 <p>The move method is called every time the 'draw()' function is run, this makes it seem as if the circle objects are constantly moving. In this method, the (x,y) co-ordinates are altered until the circle finishes an oscillation, if so then the oscillation begins again.</p>
