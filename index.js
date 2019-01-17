@@ -138,8 +138,6 @@ function draw(){
     }
     else {
       circles[i].move();
-    //if the circle has been clicked and is meant to be bouncing then run the bounce 
-    //function, otherwise the circle will continue to move in a circle as normal
     }
   }  
 }
