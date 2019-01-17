@@ -1,16 +1,16 @@
 <h1>Circle Shifts</h1>
 I have adapted a sketch called CircleShifts which uses the Creative Commons Attribution ShareAlike license.
 
-[openprocessing.org sketch](https://www.openprocessing.org/sketch/425051)<br/>
+[Openprocessing.org Sketch](https://www.openprocessing.org/sketch/425051)<br/>
 [Creative Commons Attribution ShareAlike license](https://pages.github.com/)
 
 <h2>Explanation of example</h2>
-The sketch starts with 3 circles moving in a cyclical pattern at different stages in the oscillation. The user is able to change the colour and size of these circles using the sliders to the left of the page. They are also able to change the speed of the circles via the arrows on the input box. Hovering over a circle with the cursor will change the colour of that circle to a darker shade. Clicking on a circle will make the circle bounce around the screen and clicking on the same circle again will change it's direction. Other features include a text box input that allows the user to add multiple circles and a reset button that returns the sketch to it's original state. 
+The sketch starts with 3 circles oscillating at different stages. The user is able to change the colour and size of these circles using the sliders to the left of the page. They are also able to change the speed of the circles via the arrows on the input box. Hovering over a circle with the cursor will make that circle darker and clicking the circle will make it bounce around the screen, clicking on the same circle again will change it's direction. Other features include a text box input that allows the user to add multiple circles and a reset button that returns the sketch to it's original state. 
 
 <h2>Javascript circle class</h2>
 
 <h5>constructor(x,y,i)</h5>
-<p>The parameters (x,y,i) are passed into the constructor method when a new circle object is initialised. x and y are the (x,y) co-ordinates of the object and i is the stage that the circle is in oscillation.</p>
+<p>The parameters (x,y,i) are passed into the constructor method when a new circle object is initialised. <mark>x</mark> and y are the (x,y) co-ordinates of the object and i is the stage that the circle is in oscillation.</p>
 
 <h5>move()</h5>
 <p>The move method is called every time the 'draw()' function is run, this makes it seem as if the circle objects are constantly moving. In this method, the (x,y) co-ordinates are altered until the circle finishes an oscillation, if so then the oscillation begins again.</p>
