@@ -4,7 +4,7 @@ I have adapted a sketch from openprocessing.org called CircleShifts: https://www
 <h2>Explanation of example</h2>
 The sketch starts with 3 circles moving in a cyclical pattern at different stages in the oscillation. The user is able to change the colour and size of these circles using the sliders to the left of the page. They are also able to change the speed of the circles via the arrows on the input box. Hovering over a circle with the cursor will change the colour of that circle to a darker shade. Clicking on a circle will make the circle bounce around the screen and clicking on the same circle again will change it's direction. Other features include a text box input that allows the user to add multiple circles and a reset button that returns the sketch to it's original state. 
 
-<h2>Javascript Circle class</h2>
+<h2>Javascript circle class</h2>
 
 <h5>constructor(x,y,i)</h5>
 <p>The parameters (x,y,i) are passed into the constructor method when a new circle object is initialised. x and y are the (x,y) co-ordinates of the object and i is the stage that the circle is in oscillation.</p>
@@ -44,7 +44,7 @@ This method is called whenever the user presses their mouse. Again, variable 'd'
 [Code reference](https://www.youtube.com/watch?v=TaN5At5RWH8&list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA&index=29)
 
 <h5>bounce()</h5>
-The method adds a value onto the (x,y) co-ordinates of a circle object (this value is determined by the speed) which then makes the circle move continually in one direction.  until it reaches a screen boundary, at whihc point a number. I have included a series of 'if statements' that check whether a circle has reached any screen boundary, if so then the direction of the object is changed accordingly. 
+The method adds a value onto the (x,y) co-ordinates of a circle object (this value is determined by the speed) which then makes the circle move continually in one direction.  until it reaches a screen boundary, at whihc point a number. I have included a series of 'if statements' that check whether a circle has reached any screen boundary, if so then the direction of the object is changed accordingly. [Code reference](https://www.youtube.com/watch?v=Kp070rI_G48)
  
 ``` javascript
 this.x = this.x + (this.circledirectionx * speedNumber);
@@ -55,7 +55,6 @@ if (this.x < 0) { //off the left of the screen
   this.circledirectionx = this.circledirectionx * -1;
 }
 ```
-[Code reference:](https://www.youtube.com/watch?v=Kp070rI_G48)
 
 <h5>bounceagain()</h5>
 When the user presses a circle that is already bouncing, this method changes the varible "circledirectionx" or "circledirectiony" so that the circle changes it's direction. The variable 'randomItem' is set to equal either 1 or -1 through using the Math.floor and Math.random() functions.
@@ -93,9 +92,9 @@ A canvas is created and 3 instances of the circle class are initialised and adde
 The HTML input elements that allow the user to alter the colour, size and speed of the circles are drawn to the screen.
 
 ``` javascript
-  colourSlider = document.getElementById('colour').value;
-  sizeSlider = document.getElementById("size").value;
-  speedNumber = (document.getElementById("speed").value)/2;
+colourSlider = document.getElementById('colour').value;
+sizeSlider = document.getElementById("size").value;
+speedNumber = (document.getElementById("speed").value)/2;
 ``` 
 
 <h5>mousePressed()</h5>
