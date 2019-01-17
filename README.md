@@ -20,6 +20,7 @@ this.w = abs(this.w);
 
 <h5>show()</h5>
 This method is rather self explanitory, the circle style is established by using the built-in stroke and fill functions, the circle is then drawn to the screen using the built-in ellipse function. Variable w is the current width of a given circle object. The variable 'colourSlider' is passed into this method so that the colour determined by the user from the HTML slider can be used by the method.
+
 ``` javascript
 show(colourSlider) {
   stroke(colourSlider, 255, this.brightness);
@@ -30,6 +31,7 @@ show(colourSlider) {
 
 <h5>hover()</h5>
 After passing in the (x,y) co-ordinates of the mouse cursor, a variable 'd' is created to determine how far away the cursor is from any given circle object. If the mouse cursor is within the boundaries of a given circle (i.e. if the user is hovering over one of the circles) then the brightness of the circle is changed to 180 which changes the darkness of the circle.
+
 ``` javascript
 hover(x,y){
   let d = dist(x,y,this.x,this.y)
@@ -46,14 +48,16 @@ The mousedpressed() function below is run anytime the user clicks their computer
 
 <h5>bounce()</h5>
 This method is called when the attribute 'bouncing' is set to 'true', i.e. the user has clicked on a circle and so that circle should start to bounce around the screen instead of moving in oscillation like at the start. The method adds a value onto the x and y co-ordinates of a circle object (this value is determined by the speed) which then makes the circle move continually in one direction on the screen.  
- ```javascript
+ 
+``` javascript
 this.x = this.x + (this.circledirectionx * speedNumber);
 this.y = this.y + (this.circledirectiony * speedNumber);
 this.w = sizeSlider*4;
 this.w = abs(this.w);
 ```
 There are a series of 'if statements' included in this method to check whether a circle has reached the window boundaries, if so then the direction of the object is changed accordingly. An example of one of the if statements can be seen here:
- ```javascript
+
+``` javascript
 if (this.x < 0) { //off the left of the screen
   this.circledirectionx = this.circledirectionx * -1;
 }
@@ -62,7 +66,8 @@ if (this.x < 0) { //off the left of the screen
 
 <h5>bounceagain()</h5>
 When the user first clicks a circle, it stops oscillating and begins to bounce around the screen. When the user presses the same circle a second or third time etc. the circle changes it's direction and begins to move another way, this is all due to this 'bounceagain' method. A variable 'randomItem' is initialised and set to equal a random item from the array 'random' by using the Math.floor and Math.random() functions that are recognised by Javascript.
- ```javascript
+
+``` javascript
 var random = [1, -1]
 var randomItem = random[Math.floor(Math.random()*random.length)]
 ```
