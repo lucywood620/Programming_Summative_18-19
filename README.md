@@ -1,16 +1,16 @@
 <h2>Circle class</h2>
-I have one class in my Javascript code, called the 'Circle' class. The constructor method is called when initialising a new class object, the parameters (x,y,i) are passed into the constructor which  are the (x,y) co-ordinates of the circle's starting point and i is the stage 
-that the circle is at in oscillation.
-```javascript
-class Circle{
+<p>I have one class in my Javascript code, called the `Circle` class. The constructor method is called when initialising a new class object, the parameters (x,y,i) are passed into the constructor which  are the (x,y) co-ordinates of the circle's starting point and i is the stage 
+that the circle is at in oscillation.</p>
+``` javascript
+class Circle {
   constructor(x,y,i) {
 }
 ```
 
 <h5>move()</h5>
-The move method is called every time the 'draw()' function is ran so that it looks as if all the objects that belong to the circle class are constantly moving in a circle. The x and y positions are continually changed until the circle reaches the end of the oscillation, if so then the movement starts again. The code used in this code utilises the code from the original sketch that I am adapting:
+<p>The move method is called every time the 'draw()' function is ran so that it looks as if all the objects that belong to the circle class are constantly moving in a circle. The x and y positions are continually changed until the circle reaches the end of the oscillation, if so then the movement starts again. This method utilises the code from the original sketch:</p>
 
-```javascript  
+``` javascript  
 this.x = cos(radians(this.i)) * sizeSlider + 900 / 2;
 this.y = sin(radians(this.i)) * (sizeSlider*2) + 750 / 2;
 this.w = (sin(radians(time + this.i)) * (sizeSlider*4));
@@ -19,7 +19,7 @@ this.w = abs(this.w);
 
 <h5>show()</h5>
 This method is rather self explanitory, the circle style is established by using the built-in stroke and fill functions, the circle is then drawn to the screen using the built-in ellipse function. Variable w is the current width of a given circle object. The variable 'colourSlider' is passed into this method so that the colour determined by the user from the HTML slider can be used by the method.
-```javascript
+``` javascript
 show(colourSlider) {
   stroke(colourSlider, 255, this.brightness);
   fill(colourSlider, 255, this.brightness, 127);
@@ -29,7 +29,7 @@ show(colourSlider) {
 
 <h5>hover()</h5>
 After passing in the (x,y) co-ordinates of the mouse cursor, a variable 'd' is created to determine how far away the cursor is from any given circle object. If the mouse cursor is within the boundaries of a given circle (i.e. if the user is hovering over one of the circles) then the brightness of the circle is changed to 180 which changes the darkness of the circle.
-```javascript
+``` javascript
 hover(x,y){
   let d = dist(x,y,this.x,this.y)
   if (d < this.w/2) {
@@ -66,7 +66,9 @@ var random = [1, -1]
 var randomItem = random[Math.floor(Math.random()*random.length)]
 ```
 
-<h1>Functions</h1>
+<h2> Javascript Functions</h2>
+
+<h5> function addcircles()</h5>
 
 
 function addcircles() {
@@ -80,20 +82,22 @@ function addcircles() {
     circle[i].bouncing = true;
     circles.push(circle[i]);
   }
-[I'm an inline-style link](https://www.codecademy.com/en/forum_questions/51068e93f73ad4947a005629)
-
 }
+[Code reference:](https://www.codecademy.com/en/forum_questions/51068e93f73ad4947a005629)
 
+<h5> function reset()</h5>
 function reset() {
   circles = []
   setup()
 }  
 
+<h5> function speedFunction()</h5>
 function speedFunction() {
   speed = document.getElementById("myNumber").value;
   document.getElementById("demo").innerHTML = x;
 }
 
+<h5> function setup()</h5>
 function setup(){
   canvas = createCanvas(900, 750);
   // Move the canvas so it’s inside our <div id="sketch-holder">.
@@ -110,6 +114,7 @@ function setup(){
   circles.push(circle3);
 }
 
+<h5> function draw()</h5>
 function draw(){
   background(242);
   colourSlider = document.getElementById('colour').value;
@@ -130,6 +135,7 @@ function draw(){
   }  
 }
 
+<h5> function mousePressed()</h5>
 function mousePressed() {
   for (let i = 0; i < circles.length; i++) {
     circles[i].clicked(mouseX,mouseY);

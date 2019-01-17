@@ -49,7 +49,7 @@ class Circle{
   }
 
   clicked(x,y){
-    let d = dist(x,y,this.x,this.y)
+    d = dist(x,y,this.x,this.y)
     if (d < this.w/2) {
       this.bouncing = true;
       this.bounceagain()
