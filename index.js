@@ -2,7 +2,7 @@ var time = 0;
 let circle1;
 let circle2;
 let circle3;
-let circles = []
+var circles = []
 var colourSlider;
 var sizeSlider;
 var speedNumber;
@@ -56,7 +56,6 @@ class Circle{
     }
   }
   
-
   bounce(){
     this.x = this.x + (this.circledirectionx * speedNumber);
     this.y = this.y + (this.circledirectiony * speedNumber);
@@ -90,16 +89,25 @@ class Circle{
   }
 }
 
-function reset() {
-  var x = 100;
-  var y = 100;
-  for (let i = 0; i < circles.length; i++) {
-    circles[i].x = x
-    circles[i].y = y
-     x = x + 100
-     y = y + 100
-     circles[i].bouncing = false;
+function addcircles() {
+  var number = document.getElementById("addnew").value;
+  var circle = new Circle(0,0,0);
+  for (var i = 0; i < number; i++) {
+    var randomx = Math.floor(Math.random() * 900);
+    var randomy = Math.floor(Math.random() * 750);
+    console.log(i)
+    circle[i] = new Circle(randomx,randomy,0);
+    circle[i].bouncing = true;
+    circles.push(circle[i]);
   }
+
+  //credit: https://www.codecademy.com/en/forum_questions/51068e93f73ad4947a005629
+
+}
+
+function reset() {
+  circles = []
+  setup()
 }  
 
 function speedFunction() {
