@@ -8,7 +8,6 @@ var sizeSlider;
 var speedNumber;
 var canvas;
 
-
 class Circle{
   constructor(x,y,i) {
     this.x = x;
@@ -61,7 +60,6 @@ class Circle{
     this.y = this.y + (this.circledirectiony * speedNumber);
     this.w = sizeSlider*4;
     this.w = abs(this.w);
-
     if (this.x < 0) { //off the left of the screen
       this.circledirectionx = this.circledirectionx * -1;
     }
@@ -79,7 +77,6 @@ class Circle{
   bounceagain(){
     var random = [1, -1]
     var randomItem = random[Math.floor(Math.random()*random.length)]
-
     if (randomItem == 1){
       this.circledirectionx = this.circledirectionx * -1;
     }
@@ -95,14 +92,10 @@ function addcircles() {
   for (var i = 0; i < number; i++) {
     var randomx = Math.floor(Math.random() * 900);
     var randomy = Math.floor(Math.random() * 750);
-    console.log(i)
     circle[i] = new Circle(randomx,randomy,0);
     circle[i].bouncing = true;
     circles.push(circle[i]);
   }
-
-  //credit: https://www.codecademy.com/en/forum_questions/51068e93f73ad4947a005629
-
 }
 
 function reset() {
@@ -117,7 +110,7 @@ function speedFunction() {
 
 function setup(){
   canvas = createCanvas(900, 750);
-  // Move the canvas so it’s inside our <div id="sketch-holder">.
+  // Move canvas so it’s inside <div id="sketch-holder">.
   canvas.parent('sketch-holder');
   background(255, 0, 200);
 
